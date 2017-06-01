@@ -3,7 +3,7 @@
 // for ($c = 'a'; $c <= 'z'; $c++) { 
 //   echo $c . "<br />"; 
 // }
-
+//php 常见bug
 for ($i = ord('a'); $i <= ord('z'); $i++) { 
   echo chr($i) . "\n"; 
 }
