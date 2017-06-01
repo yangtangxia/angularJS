@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量调节器</title>
+    <script src="./org/angular.min.js"></script>
+    <script src="./org/underscore-min.js" ></script>
+    <link rel="stylesheet" href="./org/bootstrap.min.css">
+    <link rel="stylesheet" href="./org/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div ng-app="hd">
+
+    <div hd-cms color="red"></div>
+</div>
+<script>
+    var m = angular.module('hd', []);
+      
+        m.directive('hdCms', [function(){
+          return {
+              restrict:'AEC',
+              template: function(elem, attr){
+                console.log(elem)
+                console.log(attr)
+              }
+          }
+        }])
+</script>
+</body>
+</html>

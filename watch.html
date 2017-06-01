@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据监听</title>
+    <script src="./org/angular.min.js"></script>
+    <script src="./org/underscore-min.js" ></script>
+    <link rel="stylesheet" href="./org/bootstrap.min.css">
+    <link rel="stylesheet" href="./org/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div ng-app="hd" ng-controller="ctrl">
+	<!--标题：<input type="text" ng-model="title">{{error}}-->
+	标题：<input type="text" ng-model="new.title">{{error}}
+</div>
+<script>
+    var m = angular.module('hd', []);
+    m.controller('ctrl', ['$scope', function ($scope) {
+		// 监听变量
+    //    $scope.title = ''
+	//    $scope.$watch('title', function(n, o){ //数据监听，n新数据，o旧数据
+	// 	   console.log(n.length);
+	// 		$scope.error = n.length > 4?'标题不能大于4位':'';
+	//    })
+	//监听对象
+		$scope.new = {title:''}
+		$scope.$watch('new', function(n,o){
+			console.log(n.title)
+			$scope.error = n.title.length > 4 ? '标题不能超过4位' : ''
+		}, true)
+    }]);
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机尾数显示*</title>
+    <script src="./org/angular.min.js"></script>
+    <script src="./org/underscore-min.js" ></script>
+    <link rel="stylesheet" href="./org/bootstrap.min.css">
+    <link rel="stylesheet" href="./org/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div ng-app="hd" ng-controller="ctrl">
+    <table border="1px" width="60%">
+        <tr>
+            <td>编号</td>
+            <td>姓名</td>
+            <td>电话</td>
+        </tr>
+        <tr ng-repeat="(k, v) in data">
+            <td>{{v.id}}</td>
+            <td>{{v.name}}</td>
+            <td>{{v.mobile | trucnate}}</td>
+            <!--<td>{{v.mobile | trucnate:2}}</td>-->
+        </tr>
+    </table>
+</div>
+<script>
+    var m = angular.module('hd', []);
+
+    m.filter('trucnate', function(){
+        return function(mobile, len){
+            len = len ? len : 4;
+            return mobile.substr(0,11 - len) + new String('*').repeat(len);
+        }
+    })
+    m.controller('ctrl', ['$scope', function ($scope) {
+       $scope.data = [
+		   	{id:1,name:'小明',mobile:'15632548754'},
+			{id:2,name:'小华',mobile:'13659874521'},
+			{id:3,name:'唐僧',mobile:'16999999999'}
+		];
+
+    }]);
+</script>
+</body>
+</html>

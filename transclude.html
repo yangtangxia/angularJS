@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量调节器</title>
+    <script src="./org/angular.min.js"></script>
+    <script src="./org/underscore-min.js" ></script>
+    <link rel="stylesheet" href="./org/bootstrap.min.css">
+    <link rel="stylesheet" href="./org/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div ng-app="hd">
+
+    <div hd-cms>wrewre</div>
+</div>
+<script>
+    var m = angular.module('hd', []);
+      
+        m.directive('hdCms', [function(){
+          return {
+              restrict:'EA',
+              template: '<h1> 后盾网<div ng-transclude=""></div></h1>',
+              transclude:true
+            //   replace:false // 替换，true为替换标签，false替换标签里的内容，
+              
+          }
+        }])
+</script>
+</body>
+</html>

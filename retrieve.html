@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>检索</title>
+    <script src="./org/angular.min.js"></script>
+    <script src="./org/underscore-min.js" ></script>
+    <link rel="stylesheet" href="./org/bootstrap.min.css">
+    <link rel="stylesheet" href="./org/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div ng-app="hd" ng-controller="ctrl">
+	<!--{{data}}
+    <button ng-click="orderBy()">控制器中使用过滤器</button>-->
+    搜索<input type="text" ng-model="search">
+    <table border="1px" width="60%">
+        <tr>
+            <td>编号</td>
+            <td>点击数</td>
+            <td>标题</td>
+        </tr>
+        <tr ng-repeat="(k, v) in lists">
+            <td>{{v.id}}</td>
+            <td>{{v.click}}</td>
+            <td>{{v.title}}</td>
+        </tr>
+    </table>
+</div>
+<script>
+    var m = angular.module('hd', []);
+    m.controller('ctrl', ['$scope', '$filter', function ($scope, $filter) {
+       $scope.data = [
+		   	{id:1,click:100,title:'后断网'},
+			{id:2,click:324,title:'那么好'},
+			{id:3,click:250,title:'你们好'}
+		];
+
+        $scope.lists = $scope.data;// 临时数据，为了不破坏原始数据
+        $scope.$watch('search', function(n, o){
+            $scope.lists = $filter('filter')($scope.data, n)
+        })
+		
+    }]);
+</script>
+</body>
+</html>

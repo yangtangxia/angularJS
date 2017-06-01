@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量调节器</title>
+    <script src="./org/angular.min.js"></script>
+    <script src="./org/underscore-min.js" ></script>
+    <link rel="stylesheet" href="./org/bootstrap.min.css">
+    <link rel="stylesheet" href="./org/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div ng-app="hd">
+
+	<!--<div hdcms></div>-->
+    <!--<hr>
+    <h2 hdcms></h2>
+    <hr>
+    <hdcms></hdcms>
+    <hr>
+    <div class="hdcms"></div>
+    <hr>
+    <h1 hd-color="red">后盾网</h1>-->
+
+    <div hd-cms></div>
+</div>
+<script>
+    var m = angular.module('hd', []);
+        // 自定义指令
+        // m.directive('hdcms', function(){
+        //     return {
+        //         restrict:'AEC', //指令的值的表现形式，a代表属性 ,e element元素 c class类 ;c不建议用
+        //         template: '后盾cms系统'
+        //     }
+        // })
+
+        // 指令命名规范,驼峰法
+        m.directive('hdCms', [function(){
+            return {
+                restrict:'AEC',
+                template:'护盾cms系统' // template 放内容
+            }
+        }])
+</script>
+</body>
+</html>

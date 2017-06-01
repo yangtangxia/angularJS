@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量调节器</title>
+    <script src="./org/angular.min.js"></script>
+    <script src="./org/underscore-min.js" ></script>
+    <link rel="stylesheet" href="./org/bootstrap.min.css">
+    <link rel="stylesheet" href="./org/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div ng-app="hd" ng-controller="ctrl">
+	<!--
+    	作者：yang1315670322.com@foxmail.com
+    	时间：2017-05-23
+    	描述：currency货币调节，后面为参数，参数之间用：分开
+    -->
+    <!--{{price|currency:'@':1}}-->
+    
+	  <!--
+	  	作者：yang1315670322.com@foxmail.com
+	  	时间：2017-05-23
+	  	描述：lowercase:转小写;uppercase转大写；
+	  	
+	  -->
+	  <!--{{name|lowercase}}
+	  {{name|uppercase|lowercase}}<!--先转大写再转小写-->
+	  <!--
+      	作者：yang1315670322.com@foxmail.com
+      	时间：2017-05-23
+      	描述：字符串截取,limitTo截取字符
+      -->
+      <!--{{str|limitTo:2}}-->
+      <!--
+      	作者：yang1315670322.com@foxmail.com
+      	时间：2017-05-23
+      	描述：根据时间戳设置时间格式
+      -->
+      <!--{{time|date:'yyyy年MM月dd日 HH时mm分ss秒'}}-->
+      
+      <!--
+      	作者：yang1315670322.com@foxmail.com
+      	时间：2017-05-23
+      	描述：排序orderBy，filter匹配，
+      -->
+      <!--{{data|orderBy:id}}-->
+      <!--{{data|filter:'好'}}-->
+</div>
+<script>
+    var m = angular.module('hd', []);
+    m.controller('ctrl', ['$scope', function ($scope) {
+        //变量调节器 
+        //currency 货币调节
+        // number 数字调节
+       //$scope.price = 456.38
+       
+       //大小写转换
+		//$scope.name = 'HouDuangwang'
+		
+		//字符串截取
+		//$scope.str = '后断网热热数量及覅偶打卡赛欧';//字符串截取
+		
+		//日期
+//		$scope.time = new Date().getTime();//得到时间戳
+
+		//排序，匹配
+//		$scope.data = [
+//			{id:1,click:100,title:'后断网'},
+//			{id:2,click:124,title:'那么好'},
+//			{id:3,click:250,title:'你们好'}
+//		]
+    }]);
+</script>
+</body>
+</html>
